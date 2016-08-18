@@ -10,7 +10,7 @@ import org.apache.zookeeper.test.ClientBase;
 
 public class ZookeeperWatcherTest extends Thread implements Watcher {
     private static ZooKeeper    zk;
-    public static final String  PATH = "/testRootPath"; // 所要监控的结点
+    public static final String  PATH = "/app"; // 所要监控的结点
     private static List<String> nodeList;              // 所要监控的结点的子结点列表
 
     @Override

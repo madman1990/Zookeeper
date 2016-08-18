@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration scan="true">
+	<property name="USER_HOME" value="/home/weblogic/logs/PayUrlShort" />
+	<property name="DEFAULT" value="DEFAULT" />
+
+	<!-- 控制台输出 -->
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>%d{yyyyMMdd HH:mm:ss SSS}[%thread][%level][%c][%L]-%msg%n
+			</pattern>
+		</encoder>
+	</appender>
+
+	<!-- debug 开发使用 -->
+	<appender name="DEFAULT-DEBUG"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<File>${USER_HOME}/logs/${DEFAULT}-DEBUG.log</File>
+		<!-- 设置日志级别DEBUG日志文件只打印INFO日志 其余的不打印 -->
+		<filter class="ch.qos.logback.classic.filter.LevelFilter">
+			<level>DEBUG</level>
+			<onMatch>ACCEPT</onMatch>
+			<onMismatch>DENY</onMismatch>
+		</filter>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${USER_HOME}/logs/${DEFAULT}%d{yyyyMMdd}.log
+			</fileNamePattern>
+			<maxHistory>30</maxHistory>
+		</rollingPolicy>
+		<layout>
+			<Pattern>%d{yyyyMMdd HH:mm:ss SSS}[%thread][%level][%X{LINE}][%c][%L]-%msg%n
+			</Pattern>
+		</layout>
+	</appender>
+
+	<!-- =========================================公用配置Start=============================== -->
+	<appender name="DEFAULT-INFO"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<File>${USER_HOME}/logs/${DEFAULT}-INFO.log
+		</File>
+		<!-- 设置日志级别 INFO日志文件只打印INFO日志 其余的不打印 -->
+		<filter class="ch.qos.logback.classic.filter.LevelFilter">
+			<level>INFO</level>
+			<onMatch>ACCEPT</onMatch>
+			<onMismatch>DENY</onMismatch>
+		</filter>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${USER_HOME}/logs/${DEFAULT}-INFO%d{yyyyMMdd}.log
+			</fileNamePattern>
+			<maxHistory>30</maxHistory>
+		</rollingPolicy>
+		<layout>
+			<Pattern>%d{yyyyMMdd HH:mm:ss SSS}[%thread][%level][%X{LINE}][%c][%L]-%msg%n
+			</Pattern>
+		</layout>
+	</appender>
+
+
+	<appender name="DEFAULT-ERROR"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<File>${USER_HOME}/logs/${DEFAULT}-ERROR.log
+		</File>
+		<!-- 设置日志级别DEBUG日志文件只打印INFO日志 其余的不打印 -->
+		<filter class="ch.qos.logback.classic.filter.LevelFilter">
+			<level>ERROR</level>
+			<onMatch>ACCEPT</onMatch>
+			<onMismatch>DENY</onMismatch>
+		</filter>
+
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${USER_HOME}/logs/${DEFAULT}-ERROR%d{yyyyMMdd}.log
+			</fileNamePattern>
+			<maxHistory>30</maxHistory>
+		</rollingPolicy>
+		<layout>
+			<Pattern>%d{yyyyMMdd HH:mm:ss SSS}[%thread][%level][%X{LINE}][%c][%L]-%msg%n
+			</Pattern>
+		</layout>
+	</appender>
+
+	<!-- =========================================公用配置End=============================== -->
+
+	<logger name="org.apache.zookeeper" level="OFF" />
+
+	<logger name="java.sql.PreparedStatement" level="DEBUG" />
+
+	<root level="DEBUG">
+		<appender-ref ref="DEFAULT-DEBUG" />
+		<appender-ref ref="DEFAULT-INFO" />
+		<appender-ref ref="DEFAULT-ERROR" />
+		<!-- 生产的时候这个控制台日志要注释掉 -->
+		<appender-ref ref="STDOUT" />
+	</root>
+</configuration>
+
