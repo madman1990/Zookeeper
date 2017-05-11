@@ -70,8 +70,8 @@ public class Prepo {
     static String     paramV1         = "insert into prep_param values (prepo.nextval, ''{0}'', ''1'', ''{1}'', ''{2}'', null, ''1'', null, ''1'');";
     static String     paramV1_JYM     = "insert into prep_param values (prepo.nextval, ''{0}'', ''1'', null, ''JYM'', null, ''0'', ''{1}'', ''1'');";
 
-    static String     paramV2_0       = "insert into prep_param values (prepo.nextval, ''{0}'', ''2'', ''respDesc'', ''MSG_CODE'', null, ''1'', null, ''1'');";
-    static String     paramV2_1       = "insert into prep_param values (prepo.nextval, ''{0}'', ''2'', ''respCode'', ''MSG_TEXT'', null, ''1'', null, ''1'');";
+    static String     paramV2_0       = "insert into prep_param values (prepo.nextval, ''{0}'', ''2'', ''respDesc'', ''MSG_TEXT'', null, ''1'', null, ''1'');";
+    static String     paramV2_1       = "insert into prep_param values (prepo.nextval, ''{0}'', ''2'', ''respCode'', ''MSG_CODE'', null, ''1'', null, ''1'');";
     static String     paramV2_2       = "insert into prep_param values (prepo.nextval, ''{0}'', ''2'', ''data'', ''data'', null, ''1'', null, ''1'');";
     static String     paramV2_3       = "insert into prep_param values (prepo.nextval, ''{0}'', ''2'', ''dataType''', null, ''0'', ''0'', ''json'', ''1'');";
 
@@ -92,7 +92,26 @@ public class Prepo {
     public static void main(String[] args) {
 
         HashMap<String, String> map = new HashMap<String, String>();
-        inserPrepo("GetLoginAppUserType.Req", "获取登录应用类型", map);
+        inserPrepo("GetSalesPromotioList.Req", "金豆跑马灯列", map);
+    }
+
+    /**
+     * 
+     * 【方法名】 : (这里用一句话描述这个方法的作用). <br/>
+     * 【作者】: madman .<br/>
+     * 【时间】： 2017年5月4日 下午7:01:47 .<br/>
+     * 【参数】： .<br/>
+     * .<br/>
+     * <p>
+     * 修改记录.<br/>
+     * 修改人: Administrator 修改描述：创建新新件 .<br/>
+     * <p/>
+     */
+    @Test
+    public void GetMktProdectList() {
+        HashMap<String, String> map = new HashMap<String, String>();
+        map.put("customerId", "");
+        inserPrepo("customerId.Req", "终端下发记录列表", map);
     }
 
     /**
