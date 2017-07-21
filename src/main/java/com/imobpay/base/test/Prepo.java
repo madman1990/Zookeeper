@@ -97,6 +97,30 @@ public class Prepo {
 
     /**
      * 
+     * 【方法名】 : 保存用户的收货地址 <br/>
+     * 【作者】: madman .<br/>
+     * 【时间】： 2017年6月24日 下午6:13:04 .<br/>
+     * 【参数】： .<br/>
+     * .<br/>
+     * <p>
+     * 修改记录.<br/>
+     * 修改人: madman 修改描述：创建新新件 .<br/>
+     * <p/>
+     */
+    @Test
+    public void SaveUserDeliveryAddress() {
+        HashMap<String, String> map = new HashMap<String, String>();
+        map.put("appUser", "");
+        map.put("customerId", "");
+        map.put("mobileNo", "");
+        map.put("userName", "");
+        map.put("address", "");
+        map.put("businessType", "");
+        inserPrepo("SaveUserDeliveryAddress.Req", "保存用户的收货记录", map);
+    }
+
+    /**
+     * 
      * 【方法名】 : (这里用一句话描述这个方法的作用). <br/>
      * 【作者】: madman .<br/>
      * 【时间】： 2017年5月4日 下午7:01:47 .<br/>
