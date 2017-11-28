@@ -92,7 +92,10 @@ public class Prepo {
     public static void main(String[] args) {
 
         HashMap<String, String> map = new HashMap<String, String>();
-        inserPrepo("GetSalesPromotioList.Req", "金豆跑马灯列", map);
+        map.put("customerId", "");
+        map.put("payType", "");
+        map.put("appUser", "");
+        inserPrepo("GetTransType.Req", "获取交易类型", map);
     }
 
     /**
