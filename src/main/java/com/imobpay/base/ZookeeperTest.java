@@ -13,10 +13,10 @@ public class ZookeeperTest {
     public static void main(String[] args) {
         try {
             // 创建一个与服务器的连接
-            ZooKeeper zk = new ZooKeeper("192.168.1.16:2181", ClientBase.CONNECTION_TIMEOUT, new Watcher() {
+            ZooKeeper zk = new ZooKeeper("192.168.37.131:2181", ClientBase.CONNECTION_TIMEOUT, new Watcher() {
                 // 监控所有被触发的事件
                 public void process(WatchedEvent event) {
-                    System.out.println("已经触发了" + event.getType() + "事件！");
+                    System.out.println("已经触发了" + event.getType() + "事件！"+event.getState());
                 }
             });
             // 创建一个目录节点
